@@ -2,9 +2,13 @@
 require 'vendor/autoload.php';
 
 use GuzzleHttp\Client;
+use Symfony\Component\Dotenv\Dotenv;
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/.env');
 
 $params = [
-    "api_key" => getenv('REAL_ESTATE_API_KEY', 'REAL_ESTATE_API_KEY'),
+    "api_key" => $_ENV['REAL_ESTATE_API_KEY'],
     "page[number]" => 1,
     "page[size]" => 100
 ];
